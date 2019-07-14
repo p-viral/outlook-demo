@@ -1,6 +1,7 @@
 // This component loads the list of emails. It is tightly knit to the selectOption property in the redux reducer which maintains the state as selected from the Sidebar component.Once an unread email is clicked the preview pane is updated and the text boldness is removed. The counter in the sidebar is also updated based on the selection of preview.
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { preview } from '../../store/actions/mailAction';
 
 class MessagesList extends Component {
   updatePreview = (id, e) => {
@@ -38,7 +39,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updatePreview: (id) => { dispatch({ type: 'UPDATE_PREVIEW', id }) }
+    updatePreview: (id) => { dispatch(preview(id)) }
   }
 }
 

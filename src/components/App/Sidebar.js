@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInbox, faBan, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { messagesList } from '../../store/actions/mailAction';
+
 
 class Sidebar extends Component {
   componentDidMount() {
@@ -58,7 +60,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectView: (box_id) => { dispatch({ type: 'UPDATE_BOX', box_id }) }
+    selectView: (box_id) => { dispatch(messagesList(box_id)) }
   }
 }
 

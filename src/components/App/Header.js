@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
+import { toggleSidebar, search, messagesList } from '../../store/actions/mailAction';
 
 class Header extends Component {
 
@@ -14,7 +15,7 @@ class Header extends Component {
 
   handleOnChange = (e) => {
     if (e.target.value) {
-      this.props.searchCacheMais(e.target.value);
+      this.props.searchCacheMails(e.target.value);
     } else {
       this.props.selectView(this.props.selectedOption)
     }
@@ -56,9 +57,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCollapse: () => { dispatch({ type: 'EXPAND_COLLAPSE' }) },
-    searchCacheMais: (searchValue) => { dispatch({ type: 'SEARCH_CACHE_MAILS', searchValue }) },
-    selectView: (box_id) => { dispatch({ type: 'UPDATE_BOX', box_id }) }
+    handleCollapse: () => { dispatch(toggleSidebar()) },
+    searchCacheMails: (searchValue) => { dispatch(search(searchValue)) },
+    selectView: (box_id) => { dispatch(messagesList(box_id)) }
   }
 }
 

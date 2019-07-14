@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
+import { deleteMail } from '../../store/actions/mailAction';
+
 
 class MessagePreview extends Component {
   render() {
@@ -30,7 +32,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteMail: (mail_id) => { dispatch({ type: 'DELETE_MAIL', mail_id }) }
+    deleteMail: (mail_id) => { dispatch(deleteMail(mail_id)) }
   }
 }
 
