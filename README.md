@@ -15,3 +15,5 @@ password : 12345
 ```
 
 The app uses react, react-router-dom and react-redux.
+
+Staticlly hosted [https://outlook-demo.netlify.com/](https://outlook-demo.netlify.com/)
